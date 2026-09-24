@@ -31,6 +31,8 @@ class CustomsProcessor:
 
         self.filtered_df = candidates.loc[condition1 & condition2]
 
+        self.excluded_df = self.raw_df.loc[~self.raw_df.index.isin(self.filtered_df.index)]
+
         if len(self.filtered_df) == 0:
             print(
                 "ERROR: filter returned 0 rows. Check filter conditions in"
