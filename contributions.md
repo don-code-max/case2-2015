@@ -1,6 +1,6 @@
 # Contributions
 
-## Don (Person A)
+## Person A - donderek
 - Project skeleton, `config.py`, `src/loader.py` (`load_data`, `validate_required_columns`)
 - Commits: `ed17af8`, `25a9ac9`, `a9fa434`, `08f58da`, `fd96727`, `003836e`
 
@@ -15,7 +15,7 @@
 - Commit: `ffdff93` 
 - Reviewed by: Don 
 
-## Person D – lnikolai (src/plotting.py, numpy_comparison.py, README.md)
+## Person D – robertroldan (src/plotting.py, numpy_comparison.py, README.md)
 - `plot_bar`, `plot_heatmap` in `src/plotting.py` 
 - `compare_loop_vs_vectorized` in `src/numpy_comparison.py` 
 - Wrote `README.md` (setup instructions, data source, filter rules, field meanings, plot descriptions) 
