@@ -35,7 +35,7 @@ pip install -r requirements.txt
 
 ## Field Meanings & Units
 
-- `countryorigin_iso3` — ISO3 country code of origin
+- `countryorigin_iso3` — ISO3 country code of origin. Note: some rows use non-standard values such as `"MANY"` (36,152 rows in the raw dataset), representing shipments with multiple countries of origin rather than a single ISO3 code. These are retained in the analysis as their own category rather than excluded, since they represent real transactions.
 - `tq` — year-quarter identifier (e.g. "2015q4")
 - `dutiablevaluephp` — Dutiable value in Philippine Pesos (PHP)
 
