@@ -89,3 +89,40 @@ def validate_required_columns(
         sys.exit(1)
 
     return True
+
+
+def inspect_data(df: pd.DataFrame) -> dict:
+    """
+    Inspect row counts, column types, and missing values before filtering.
+
+    Parameters
+    ----------
+    df: The raw DataFrame to inspect (typically the output of load_data()).
+
+    Returns
+    -------
+    dict: summary with row_count, column_count, dtypes (per column), and
+        missing_counts (per column) -- printed for visibility and also
+        returned so it can be reused (e.g. logged to audit_log.csv).
+    """
+    summary = {
+        "row_count": len(df),
+        "column_count": len(df.columns),
+        "dtypes": df.dtypes.astype(str).to_dict(),
+        "missing_counts": df.isna().sum().to_dict(),
+    }
+
+    print(f"Row count: {summary['row_count']}")
+    print(f"Column count: {summary['column_count']}")
+    print("\nColumn types:")
+    for col, dtype in summary["dtypes"].items():
+        print(f"  {col}: {dtype}")
+    print("\nMissing values per column (non-zero only):")
+    missing_nonzero = {k: v for k, v in summary["missing_counts"].items() if v > 0}
+    if missing_nonzero:
+        for col, count in missing_nonzero.items():
+            print(f"  {col}: {count}")
+    else:
+        print("  (none)")
+
+    return summary
